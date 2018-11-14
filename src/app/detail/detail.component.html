@@ -1,0 +1,21 @@
+﻿<div>
+    <h1>Atividade de postagens</h1>
+    <mat-card style="margin: 8px">
+        <div class="row" style="padding: 16px">
+            <h2>Criar postagem</h2>
+            <mat-form-field style="width: 90%">
+                <input matInput [(ngModel)]="newPostTitle" placeholder="Titulo">
+            </mat-form-field>
+            <mat-form-field style="width: 90%">
+                <textarea matInput [(ngModel)]="newPostDescription" placeholder="Descrição"></textarea>
+            </mat-form-field>
+            <br>
+            <button (click)="createPost()" mat-raised-button color="primary">Adicionar</button>
+        </div>
+    </mat-card>
+
+    <mat-card *ngFor="let post of posts" style="margin: 8px">
+        <p><strong>Titulo: </strong>{{post.title}}</p>
+        <p><strong>Descrição: </strong>{{post.text_body}}</p>
+    </mat-card>
+</div>

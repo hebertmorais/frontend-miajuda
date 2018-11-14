@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Criar turma</h1>
+<div mat-dialog-content class="form-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.name" placeholder="Nome da turma">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.schedule" placeholder="Horário das aulas">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.number" placeholder="Sala">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.semester" placeholder="Período">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.office_hours" placeholder="Horário de atendimento">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.info" placeholder="Informações">
+  </mat-form-field>
+<!--
+  <mat-form-field>
+    <textarea matInput cdkTextareaAutosize [(ngModel)]="data.students" placeholder="Nome dos alunos (separados por espaço)"></textarea>
+  </mat-form-field>-->
+
+  <mat-form-field>
+    <textarea matInput cdkTextareaAutosize [(ngModel)]="data.monitors"placeholder="Email dos monitores (separados por virgulas)"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="createClass()" cdkFocusInitial>{{data.action}}</button>
+</div>

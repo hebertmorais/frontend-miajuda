@@ -1,0 +1,48 @@
+﻿<div>
+    <h1>Painel</h1>
+    <p>Seja bem vindo, {{currentUser.name}}!</p>
+    <div>
+        Usuários cadastrados
+        <ul>
+            <li *ngFor="let user of users">{{user.name}} - {{user.email}}</li>
+        </ul>
+    </div>
+    <p><a [routerLink]="['/login']">Sair</a></p>
+    <div class="container">
+        <div class="row">
+            <mat-card *ngFor="let class of classes" class="col-lg-5" style="margin: 8px">
+                <mat-card-title>{{class.name}}</mat-card-title>
+                <mat-card-subtitle *ngIf="class.monitors.length">Monitores:
+                    <span *ngFor="let monitor of class.monitors">
+                        {{monitor}}
+                    </span>
+                </mat-card-subtitle>
+                <mat-card-content>
+                    {{class.students.length}} Alunos
+                    <br>
+                    <a (click)="getClassToken(class)">GERAR TOKEN</a>
+                    <br>
+                    <br>
+                    <p><strong>Sala: </strong>{{class.number}}</p>
+                    <p><strong>Horário das aulas: </strong>{{class.schedule}}</p>
+                    <p><strong>Horário de atendimento: </strong>{{class.office_hours}}</p>
+                    <p><strong>Período: </strong>{{class.semester}}</p>
+                    <p><strong>Informação: </strong>{{class.info}}</p>
+
+                </mat-card-content>
+
+                <button style="margin: 8px" mat-raised-button color="primary" (click)="openDetails(class)">Abrir postagens</button>
+                <button style="margin: 8px" mat-raised-button color="accent" (click)="editClass(class)">Editar</button>
+                <button style="margin: 8px" mat-stroked-button color="warn" (click)="deleteClass(class)">Excluir</button>
+
+            </mat-card>
+
+        </div>
+    </div>
+
+    <div style="z-index:5; position : fixed;display : flex; 
+align-self : flex-end;bottom : 10%; margin-bottom : 68px;">
+        <button style="right: 0; z-index: 5; position: fixed; align-self: flex-end; bottom: 4%; margin-right: 18px;"
+            (click)="openDialog()" mat-fab>+</button>
+    </div>
+</div>
